@@ -298,10 +298,10 @@ export default {
                             `upload=0; download=${usedBytes}; total=${totalBytes}; expire=${expireUnix}`,
                     
                         "profile-title":
-                            `ErPyCode | ${targetUser?.name || "User"}`,
+                            `${targetUser?.name || "User"}`,
                     
                         "Content-Disposition":
-                            `attachment; filename="${targetUser?.name || "ErPyCode"}"`,
+                            `attachment; filename="${targetUser?.name || "User"}"`,
                     
                         "profile-update-interval": "24"
                     };
@@ -3336,13 +3336,12 @@ function getDashboardUI(hasDB) {
                   stat_total_subscribers: "Total Subscribers", stat_active_paused: "Active / Paused", stat_cumulative_traffic: "Cumulative Traffic",
                   sub_directory_title: "Subscriber Directory", sub_directory_desc: "Search, modify bounds, toggle traffic limits or clear billing sessions.", user_search_placeholder: "🔍 Find by Name or UUID...",
                   v_pop_title: "Release Notice", v_pop_whatsnew: "What's New", v_pop_headline: "New Features & Improvements",
-                  v_pop_b1_title: "Redesign Panel",
-                  v_pop_b2_title: "Add Request to GB in Users Tab",
-                  v_pop_b3_title: "Add New Sub Output Type",
-                  v_pop_b4_title: "Add User Sub Detail Page",
-                  v_pop_b5_title: "Add More Features in Users Tab",
-                  v_pop_b6_title: "Add Custom URL",
-                  v_pop_b7_title: "Bug Fixes",
+                  v_pop_b1_title: "Added remaining traffic and expiry information in subscriptions",
+                  v_pop_b2_title: "Added per-user device limit support",
+                  v_pop_b3_title: "Added traffic usage progress bars in the user management table",
+                  v_pop_b4_title: "Reworked multi-port selection with a more user-friendly checkbox UI",
+                  v_pop_b5_title: "Various UI, UX and localization improvements",
+                  v_pop_b6_title: "Bug Fixed",
                   v_pop_btn: "Got it!"
               },
               fa: {
@@ -3375,13 +3374,12 @@ function getDashboardUI(hasDB) {
                   stat_total_subscribers: "کل مشترکین", stat_active_paused: "فعال / متوقف شده", stat_cumulative_traffic: "ترافیک کل انباشته",
                   sub_directory_title: "فهرست مشترکین", sub_directory_desc: "جستجو، اصلاح محدودیت‌ها، تغییر محدودیت‌های ترافیک یا پاک کردن جلسات حسابداری.", user_search_placeholder: "🔍 جستجو بر اساس نام یا شناسه...",
                   v_pop_title: "اطلاعیه تعمیرات", v_pop_whatsnew: "ویژگی‌های جدید", v_pop_headline: "امکانات جدید و بهبودها",
-                  v_pop_b1_title: "طراحی مجدد پنل",
-                  v_pop_b2_title: "افزودن امکان تبدیل درخواست به گیگابایت در تب کاربران",
-                  v_pop_b3_title: "افزودن نوع خروجی جدید برای اشتراک (ساب)",
-                  v_pop_b4_title: "افزودن صفحه جزئیات اشتراک کاربر",
-                  v_pop_b5_title: "افزودن قابلیت‌های بیشتر در تب کاربران",
-                  v_pop_b6_title: "افزودن آدرس سفارشی (کاستوم)",
-                  v_pop_b7_title: "رفع باگ‌ها",
+                  v_pop_b1_title: "اضافه شدن نمایش حجم باقی‌مانده و زمان انقضا در اشتراک‌ها",
+                  v_pop_b2_title: "اضافه شدن قابلیت محدودیت تعداد دستگاه برای هر کاربر",
+                  v_pop_b3_title: "اضافه شدن نوار پیشرفت میزان مصرف کاربران در جدول مدیریت کاربران",
+                  v_pop_b4_title: "بازطراحی بخش انتخاب چند پورت با رابط کاربری مبتنی بر Checkbox برای سهولت استفاده",
+                  v_pop_b5_title: "بهبودهای مختلف در رابط کاربری، تجربه کاربری و ترجمه‌ها",
+                  v_pop_b6_title: "رفع باگ ها",
                   v_pop_btn: "متوجه شدم!"
               }
           };
