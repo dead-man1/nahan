@@ -5054,9 +5054,9 @@ function getDashboardUI(hasDB) {
                     document.getElementById('ov-paused-users').textContent = s.users.paused;
                     document.getElementById('ov-auto-disabled').textContent = s.users.autoDisabled;
                     document.getElementById('ov-expired-users').textContent = s.users.expired;
-                    document.getElementById('ov-total-traffic').textContent = s.traffic.totalGB + ' GB';
+                    document.getElementById('ov-total-traffic').textContent = s.traffic.totalGB + ' ' + (i18n[lang]?.ov_gb_unit || 'GB');
                     document.getElementById('ov-total-reqs').textContent = s.traffic.totalRequests.toLocaleString();
-                    document.getElementById('ov-today-traffic').textContent = s.traffic.dailyGB + ' GB';
+                    document.getElementById('ov-today-traffic').textContent = s.traffic.dailyGB + ' ' + (i18n[lang]?.ov_gb_unit || 'GB');
                     document.getElementById('ov-today-reqs').textContent = s.traffic.dailyRequests.toLocaleString();
                     document.getElementById('ov-active-conns').textContent = s.system.activeConnections;
                     document.getElementById('ov-version').textContent = 'v' + s.system.version;
@@ -5521,7 +5521,7 @@ function getDashboardUI(hasDB) {
               const activeUsersEl = document.getElementById('stat-active-users');
               if (activeUsersEl) activeUsersEl.textContent = \`\${activeSubscribers} / \${pausedSubscribers}\`;
               const totalTrafficEl = document.getElementById('stat-total-traffic');
-              if (totalTrafficEl) totalTrafficEl.textContent = \`\${totalGBSum} GB\`;
+              if (totalTrafficEl) totalTrafficEl.textContent = \`\${totalGBSum} \${i18n[lang]?.ov_gb_unit || 'GB'}\`;
               const autoDisabledEl = document.getElementById('stat-auto-disabled');
               if (autoDisabledEl) autoDisabledEl.textContent = autoDisabledCount;
 
@@ -5662,7 +5662,7 @@ function getDashboardUI(hasDB) {
                       <td class="px-4 py-4 font-mono text-xs text-slate-500 select-all">\${u.id}</td>
                       <td class="px-4 py-4 text-slate-600 dark:text-slate-400 font-mono">
                           <div class="flex flex-col gap-1.5">
-                              <span class="font-bold text-xs flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>\${totalLabel} \${userReqs} \${rLabel} (\${(userReqs/6050).toFixed(2)} GB) / \${u.limitTotalReq ? (u.limitTotalReq + ' ' + rLabel + ' (' + (u.limitTotalReq/6000).toFixed(2) + ' GB)') : \`\${unlimitedTxt}\`} (\${perT})</span>
+                              <span class="font-bold text-xs flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>\${totalLabel} \${userReqs} \${rLabel} (\${(userReqs/6050).toFixed(2)} \${i18n[lang]?.ov_gb_unit || 'GB'}) / \${u.limitTotalReq ? (u.limitTotalReq + ' ' + rLabel + ' (' + (u.limitTotalReq/6000).toFixed(2) + ' ' + (i18n[lang]?.ov_gb_unit || 'GB') + ')') : \`\${unlimitedTxt}\`} (\${perT})</span>
                               
                               \${u.limitTotalReq ? \`
                               <div class="w-full bg-slate-100 dark:bg-slate-800/80 h-2 rounded-full overflow-hidden mt-0.5 mb-1">
@@ -5670,7 +5670,7 @@ function getDashboardUI(hasDB) {
                               </div>
                               \` : ''}
 
-                              <span class="text-[11px] opacity-70 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>\${dailyLabel} \${userDReqs} \${rLabel} (\${(userDReqs/6050).toFixed(2)} GB) / \${u.limitDailyReq ? (u.limitDailyReq + ' ' + rLabel + ' (' + (u.limitDailyReq/6050).toFixed(2) + ' GB)') : \`\${unlimitedTxt}\`} (\${perD})</span>
+                              <span class="text-[11px] opacity-70 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>\${dailyLabel} \${userDReqs} \${rLabel} (\${(userDReqs/6050).toFixed(2)} \${i18n[lang]?.ov_gb_unit || 'GB'}) / \${u.limitDailyReq ? (u.limitDailyReq + ' ' + rLabel + ' (' + (u.limitDailyReq/6050).toFixed(2) + ' ' + (i18n[lang]?.ov_gb_unit || 'GB') + ')') : \`\${unlimitedTxt}\`} (\${perD})</span>
                               
                               \${u.limitDailyReq ? \`
                               <div class="w-full bg-slate-100 dark:bg-slate-800/80 h-1.5 rounded-full overflow-hidden mt-0.5">
