@@ -1159,6 +1159,9 @@ async function handleConfigSync(request, env, ctx) {
                              (data.oldKey && data.oldKey === sysConfig.masterKey) || 
                              (sysConfig.masterKey === "admin");
         if (!isAuthorized) return new Response(JSON.stringify({ success: false }), { status: 401 });
+        if (data.fromMaster && !sysConfig.allowSyncWorker) {
+    return new Response(JSON.stringify({ success: false, error: "Sync not allowed" }), { status: 403 });
+}
         if (!env.IOT_DB) return new Response(JSON.stringify({ success: false, msg: "DB Error" }), { status: 400 });
         
         let nextConfig = sysConfig;
@@ -4281,7 +4284,14 @@ function getDashboardUI(hasDB) {
                                           <svg id="sync-icon" class="w-3.5 h-3.5 me-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
                                           <span id="sync-btn-txt" data-i18n="force_sync">Force Sync Now</span>
                                       </button>
+                                     </div>
+                                   <label class="flex-1 flex items-center justify-between sm:justify-start cursor-pointer group bg-slate-50 dark:bg-slate-800/50 p-3 rounded-2xl">
+                                  <span class="text-sm font-bold text-slate-700 dark:text-slate-300 sm:me-4" data-i18n="lbl_allow_sync">Allow Sync </span>
+                                  <div class="relative inline-flex items-center cursor-pointer">
+                                      <input type="checkbox" id="cfg-allow-sync" class="sr-only peer">
+                                      <div class="w-11 h-6 bg-slate-300 dark:bg-slate-600 rounded-full peer peer-checked:after:translate-x-5 rtl:peer-checked:after:-translate-x-5 peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-500 peer-checked:bg-primary"></div>
                                   </div>
+                              </label>
                               </div>
                           </div>
   
@@ -4769,6 +4779,7 @@ function getDashboardUI(hasDB) {
                   ov_system: "System", ov_recent_activity: "Recent Activity", ov_view_all: "View All →", ov_loading: "Loading...",
                    ov_quick_actions: "Quick Actions", ov_add_user: "Add User", ov_backup_config: "Backup Config", ov_refresh: "Refresh Statistics", ov_manage_users: "Manage Users",
                    ov_gb_unit: "GB",
+                   lbl_allow_sync:"Allow Sync",
               },
               fa: {
                   title: "دروازه نهان", pass_ph: "کلید اصلی", login_btn: "ورود به سیستم", err_pass: "دسترسی مسدود شد", missing_db: "⚠️ فضای پایگاه داده یافت نشد! تنظیمات ذخیره نمی‌شوند.",
@@ -4815,6 +4826,7 @@ function getDashboardUI(hasDB) {
                    ov_system: "سیستم", ov_recent_activity: "فعالیت‌های اخیر", ov_view_all: "مشاهده همه ←", ov_loading: "در حال بارگذاری...",
                    ov_quick_actions: "عملیات سریع", ov_add_user: "افزودن کاربر", ov_backup_config: "پشتیبان‌گیری", ov_refresh: "بروزرسانی آمار", ov_manage_users: "مدیریت کاربران",
                    ov_gb_unit: "گیگابایت",
+                    lbl_allow_sync:"اجازه همگام سازی",
                 }
           };
 
@@ -5391,6 +5403,7 @@ function getDashboardUI(hasDB) {
                       document.getElementById('cfg-relay').value = conf.backupRelay || '';
                       document.getElementById('cfg-tfo').checked = conf.enableOpt1 || false;
                       document.getElementById('cfg-ech').checked = conf.enableOpt2 || false;
+                      document.getElementById('cfg-allow-sync').checked = conf.allowSyncWorker || false;
                       document.getElementById('cfg-tg-token').value = conf.tgToken || '';
                       document.getElementById('cfg-tg-chat').value = conf.tgChatId || '';
                       document.getElementById('cfg-tg-admin').value = conf.tgAdminId || '';
@@ -5524,6 +5537,7 @@ function getDashboardUI(hasDB) {
                       subUserAgent: el('cfg-sub-ua').value,
                       customPanelUrl: el('cfg-custom-panel-url').value,
                       nameStrategy: el('cfg-name-strategy').value,
+                      allowSyncWorker: el('cfg-allow-sync').checked,
                       namePrefix: el('cfg-name-prefix').value
                   }
               };
