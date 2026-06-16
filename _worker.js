@@ -5,7 +5,7 @@ import { connect } from "cloudflare:sockets";
  * Handles real-time binary streams from remote sensor nodes.
  */
 
-const CURRENT_VERSION = "2.5.4";
+const CURRENT_VERSION = "2.5.4.1";
 
 const getAlpha = () => String.fromCharCode(118, 108, 101, 115, 115);
 const getBeta = () => String.fromCharCode(116, 114, 111, 106, 97, 110);
@@ -1240,14 +1240,15 @@ const botI18n = {
         reset_traffic: "🔄 Reset Traffic",
         extend_expiry: "📅 Extend Expiry",
         notes: "📝 Notes",
-        device_limit: "📱 Device Limit",
+        device_limit: "📱 Config Limit",
         msg_enter_search: "🔍 Send a username, UUID, or subscription to search:",
         msg_enter_notes: "📝 Send notes for this user:",
         msg_enter_extend_days: "📅 Enter number of days to extend expiration:",
         msg_traffic_reset: "✅ Traffic has been reset successfully!",
         msg_expiry_extended: "✅ Expiration extended by {days} days!",
         msg_no_disabled: "No disabled users found.",
-        msg_enter_device_limit: "📱 Enter device limit (0 for unlimited):",
+        msg_enter_device_limit: "📱 Enter config limit (0 for unlimited):",
+        config_limit_updated: "✅ Config limit updated!",
         stats_title: "📈 Panel Statistics",
         count_active: "active",
         count_paused: "paused",
@@ -1327,14 +1328,15 @@ const botI18n = {
         reset_traffic: "🔄 بازنشانی ترافیک",
         extend_expiry: "📅 تمدید انقضا",
         notes: "📝 یادداشت‌ها",
-        device_limit: "📱 محدودیت دستگاه",
+        device_limit: "📱 محدودیت کانفیگ",
         msg_enter_search: "🔍 نام کاربری، UUID یا لینک اشتراک را ارسال کنید:",
         msg_enter_notes: "📝 یادداشت برای این کاربر را ارسال کنید:",
         msg_enter_extend_days: "📅 تعداد روزهای تمدید را وارد کنید:",
         msg_traffic_reset: "✅ ترافیک با موفقیت بازنشانی شد!",
         msg_expiry_extended: "✅ انقضا به مدت {days} روز تمدید شد!",
         msg_no_disabled: "هیچ کاربر غیرفعالی یافت نشد.",
-        msg_enter_device_limit: "📱 محدودیت دستگاه را وارد کنید (0 برای نامحدود):",
+        msg_enter_device_limit: "📱 محدودیت تعداد کانفیگ را وارد کنید (0 برای نامحدود):",
+        config_limit_updated: "✅ محدودیت کانفیگ به‌روزرسانی شد!",
         stats_title: "📈 آمار پنل",
         count_active: "فعال",
         count_paused: "متوقف",
@@ -1703,6 +1705,15 @@ async function handleTelegramWebhook(request, env, hostName, ctx) {
             const data = cb.data;
 
             if (chatId) {
+                if (!isAuthorized) {
+                    await fetch(`${tgApi}/answerCallbackQuery`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ callback_query_id: cb.id, text: t("access_denied"), show_alert: true })
+                    });
+                    return new Response("OK", { status: 200 });
+                }
+
                 // Get active panel from last login signal
                 const activePanel = getActivePanel();
                 const isRemotePanel = activePanel && !activePanel.isLocal;
@@ -1721,17 +1732,6 @@ async function handleTelegramWebhook(request, env, hostName, ctx) {
                 await d1Put(env, "tg_bot_state", JSON.stringify(tgState));
 
                 let answerText = null;
-
-                const adminOnlyActions = ["subs_list:", "sub_detail:", "sub_toggle:", "sub_del_init:", "sub_del_confirm:", "sub_add_init", "sub_add_unlimited_skip", "sub_edit_name_init:", "sub_edit_limits_init:", "sub_unlimit_cb:", "sub_reset_traffic:", "sub_extend_init:", "sub_edit_notes_init:", "sub_edit_device_init:", "sub_device_unlimited:", "subs_disabled:", "sub_search_init", "sys_panic_init", "sys_panic_confirm"];
-                const isAdminAction = adminOnlyActions.some(a => data === a || data.startsWith(a));
-                if (isAdminAction && !isAuthorized) {
-                    await fetch(`${tgApi}/answerCallbackQuery`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ callback_query_id: cb.id, text: t("access_denied"), show_alert: true })
-                    });
-                    return new Response("OK", { status: 200 });
-                }
 
                 if (data === "main_menu") {
                     const menu = getMainMenu(activePanel, isAuthorized);
@@ -2142,7 +2142,7 @@ async function handleTelegramWebhook(request, env, hostName, ctx) {
             const chatId = update.message.chat.id;
             const text = update.message.text.trim();
             
-            if (chatId.toString() === sysConfig.tgChatId.toString() || isAuthorized || (callerId && !isAuthorized)) {
+            if (isAuthorized) {
                 // Get active panel from last login signal
                 const activePanel = getActivePanel();
                 const isRemotePanel = activePanel && !activePanel.isLocal;
@@ -2392,7 +2392,7 @@ async function handleTelegramWebhook(request, env, hostName, ctx) {
                         await d1Put(env, "tg_bot_state", JSON.stringify(tgState));
                         const panelUsers = await getPanelUsers();
                         const detail = getSubDetail(uuid, panelUsers);
-                        await sendOrEdit(chatId, `✅ Device limit updated!`, detail.kb);
+                        await sendOrEdit(chatId, `✅ ${t("config_limit_updated")}`, detail.kb);
                         return new Response("OK", { status: 200 });
                     }
                 }
@@ -2400,6 +2400,8 @@ async function handleTelegramWebhook(request, env, hostName, ctx) {
                 // Default message / fallback menu
                 const menu = getMainMenu(activePanel, isAuthorized);
                 await sendOrEdit(chatId, menu.text, menu.kb);
+            } else {
+                await sendOrEdit(chatId, t("access_denied"));
             }
         }
         return new Response("OK", { status: 200 });
@@ -4767,6 +4769,21 @@ function getDashboardUI(hasDB) {
           };
 
           const CHANGELOG_DATA = {
+              "2.5.4.1": {
+                  headline: { en: "Security Hotfix — Bot Authorization", fa: "اصلاح امنیتی — احراز هویت ربات" },
+                  added: [],
+                  fixed: [
+                      { en: "Fixed critical issue where unauthorized users could access bot and panel data via Worker", fa: "رفع مشکل بحرانی دسترسی کاربران غیرمجاز به اطلاعات ربات و پنل از طریق Worker" },
+                      { en: "Added proper Telegram user ID validation for all Worker-related requests", fa: "افزودن بررسی صحیح آیدی عددی تلگرام برای تمام درخواست‌های مربوط به Worker" },
+                  ],
+                  improved: [
+                      { en: "Only users with approved admin IDs can interact with the bot and access panel data", fa: "فقط کاربرانی که آیدی آن‌ها در لیست ادمین‌ها ثبت شده باشد اجازه دسترسی به ربات و اطلاعات پنل را دارند" },
+                      { en: "Unauthorized users now receive a clear access denied message", fa: "کاربران غیرمجاز اکنون پیام خطای دسترسی مناسب دریافت می‌کنند" },
+                  ],
+                  notes: [
+                      { en: "Security update — recommended for all users", fa: "به‌روزرسانی امنیتی — توصیه‌شده برای تمام کاربران" },
+                  ]
+              },
               "2.5.4": {
                   headline: { en: "Overview Dashboard & Mobile Improvements", fa: "داشبورد نمای کلی و بهبود نمایش در موبایل" },
                   added: [
