@@ -1,6 +1,4 @@
-  <!DOCTYPE html>
-  <html lang="en" class="dark">
-  <head>
+<!DOCTYPE html><html lang="en" class="dark"><head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
       <meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,7 +10,7 @@
       <meta name="msapplication-tap-highlight" content="no">
       <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%236366f1'/><text x='50' y='62' font-size='40' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold'>N</text></svg>">
       <title>Nahan Gateway</title>
-      <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
       <script src="https://cdn.tailwindcss.com"></script>
       <script>
           tailwind.config = {
@@ -30,129 +28,40 @@
               }
           }
       </script>
-      <style>
-          /* Redesigned Premium Style */
-          :root {
-              --primary: #4f46e5;
-              --primary-hover: #4338ca;
-              --bg-light: #f1f5f9;
-              --bg-dark: #0f172a;
-              --glass-light: rgba(255, 255, 255, 0.7);
-              --glass-dark: rgba(30, 41, 59, 0.7);
-          }
-          body {
-              font-family: 'Inter', 'Vazirmatn', sans-serif;
-              transition: background-color 0.3s ease;
-          }
-          
-          /* Light Theme */
-          html:not(.dark) {
-              background: var(--bg-light) !important;
-              color: #1e293b !important;
-          }
-          html:not(.dark) body {
-              background: radial-gradient(circle at top left, #e2e8f0 0%, #f1f5f9 100%) !important;
-              background-attachment: fixed !important;
-          }
-          html:not(.dark) .bg-white, html:not(.dark) #dash-box {
-              background: var(--glass-light) !important;
-              backdrop-filter: blur(12px) !important;
-              -webkit-backdrop-filter: blur(12px) !important;
-              border: 1px solid rgba(255, 255, 255, 0.5) !important;
-              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
-          }
-          html:not(.dark) aside {
-              background: rgba(255, 255, 255, 0.5) !important;
-              backdrop-filter: blur(20px) !important;
-              border-right: 1px solid rgba(255,255,255,0.6) !important;
-          }
-          
-          /* Dark Theme */
-          html.dark {
-              background: var(--bg-dark) !important;
-              color: #f8fafc !important;
-          }
-          html.dark body {
-              background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%) !important;
-              background-attachment: fixed !important;
-          }
-          html.dark .bg-white, html.dark .bg-darkcard, html.dark #dash-box {
-              background: var(--glass-dark) !important;
-              backdrop-filter: blur(16px) !important;
-              -webkit-backdrop-filter: blur(16px) !important;
-              border: 1px solid rgba(255, 255, 255, 0.1) !important;
-              box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
-          }
-          html.dark aside {
-              background: rgba(15, 23, 42, 0.6) !important;
-              backdrop-filter: blur(24px) !important;
-              border-right: 1px solid rgba(255,255,255,0.05) !important;
-          }
-          
-          /* Buttons and Inputs */
-          input, select, textarea {
-              transition: all 0.2s ease;
-              border-radius: 0.75rem !important;
-          }
-          html:not(.dark) input, html:not(.dark) select, html:not(.dark) textarea {
-              background: rgba(255, 255, 255, 0.8) !important;
-              border: 1px solid rgba(203, 213, 225, 0.8) !important;
-          }
-          html.dark input, html.dark select, html.dark textarea {
-              background: rgba(15, 23, 42, 0.5) !important;
-              border: 1px solid rgba(51, 65, 85, 0.5) !important;
-          }
-          input:focus, select:focus, textarea:focus {
-              box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
-              border-color: var(--primary) !important;
-          }
-          
-          /* Navigation items */
-          .nav-item {
-              transition: all 0.2s ease !important;
-              border-radius: 0.75rem !important;
-              margin-bottom: 0.25rem !important;
-          }
-          html:not(.dark) .nav-item:hover {
-              background: rgba(255, 255, 255, 0.9) !important;
-              transform: translateX(4px);
-          }
-          html.dark .nav-item:hover {
-              background: rgba(30, 41, 59, 0.8) !important;
-              transform: translateX(4px);
-          }
-          .nav-item.active {
-              background: var(--primary) !important;
-              color: white !important;
-              border-left: none !important;
-              box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4) !important;
-          }
-          
-          /* Misc Utilities */
-          .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-          @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-          
-          /* Scrollbar styling */
-          ::-webkit-scrollbar { width: 8px; height: 8px; }
-          ::-webkit-scrollbar-track { background: transparent; }
-          ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.3); border-radius: 4px; }
-          ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.5); }
-          
-          .mobile-bottom-nav {
-              background: var(--glass-light);
-              backdrop-filter: blur(20px);
-              border-top: 1px solid rgba(203, 213, 225, 0.5);
-          }
-          html.dark .mobile-bottom-nav {
-              background: rgba(15, 23, 42, 0.85);
-              border-top: 1px solid rgba(51, 65, 85, 0.5);
-          }
-          .mobile-nav-item.active {
-              color: var(--primary) !important;
-          }
-          .mobile-nav-item { transition: color 0.2s; }
-</style>
-  </head>
+      
+  <style>
+:root {
+    --color-primary: #6366f1; --color-primary-hover: #4f46e5; --color-bg: #f8fafc;
+    --color-surface: rgba(255, 255, 255, 0.7); --color-border: rgba(203, 213, 225, 0.5);
+}
+html.dark {
+    --color-primary: #818cf8; --color-primary-hover: #6366f1; --color-bg: #0f172a;
+    --color-surface: rgba(30, 41, 59, 0.6); --color-border: rgba(51, 65, 85, 0.5);
+}
+/* Ocean Theme */
+html[data-theme="ocean"] { --color-primary: #0ea5e9; --color-bg: #ecfeff; }
+html[data-theme="ocean"].dark { --color-primary: #38bdf8; --color-bg: #082f49; }
+/* Forest Theme */
+html[data-theme="forest"] { --color-primary: #10b981; --color-bg: #f0fdf4; }
+html[data-theme="forest"].dark { --color-primary: #34d399; --color-bg: #022c22; }
+/* Sunset Theme */
+html[data-theme="sunset"] { --color-primary: #f43f5e; --color-bg: #fff1f2; }
+html[data-theme="sunset"].dark { --color-primary: #fb7185; --color-bg: #4c0519; }
+/* Dracula Theme */
+html[data-theme="dracula"] { --color-primary: #bd93f9; --color-bg: #282a36; --color-surface: rgba(68, 71, 90, 0.6); }
+
+body { background: var(--color-bg); font-family: 'Inter', sans-serif; transition: background 0.3s ease; }
+.bg-white, .dark\:bg-darkcard { background: var(--color-surface) !important; backdrop-filter: blur(12px); border-color: var(--color-border) !important; }
+input, select, textarea { transition: all 0.2s; border-radius: 0.75rem !important; }
+input:focus, select:focus { border-color: var(--color-primary) !important; box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2) !important; }
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+
+[data-accordion-content] { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+</style></head>
   <body class="text-slate-800 dark:text-slate-200 h-[100dvh] flex flex-col md:flex-row overflow-hidden selection:bg-primary selection:text-white transition-colors duration-300 bg-slate-50 dark:bg-darkbg">
 
       <!-- Global Controls -->
@@ -176,128 +85,7 @@
           <div class="absolute pointer-events-none" style="width:500px;height:500px;top:-100px;left:-150px;background:radial-gradient(circle,rgba(99,102,241,0.12) 0%,transparent 65%);"></div>
           <div class="absolute pointer-events-none" style="width:400px;height:400px;bottom:-80px;right:-100px;background:radial-gradient(circle,rgba(139,92,246,0.1) 0%,transparent 65%);"></div>
           <div class="relative w-full max-w-sm">
-              <style>
-          /* Redesigned Premium Style */
-          :root {
-              --primary: #4f46e5;
-              --primary-hover: #4338ca;
-              --bg-light: #f1f5f9;
-              --bg-dark: #0f172a;
-              --glass-light: rgba(255, 255, 255, 0.7);
-              --glass-dark: rgba(30, 41, 59, 0.7);
-          }
-          body {
-              font-family: 'Inter', 'Vazirmatn', sans-serif;
-              transition: background-color 0.3s ease;
-          }
-          
-          /* Light Theme */
-          html:not(.dark) {
-              background: var(--bg-light) !important;
-              color: #1e293b !important;
-          }
-          html:not(.dark) body {
-              background: radial-gradient(circle at top left, #e2e8f0 0%, #f1f5f9 100%) !important;
-              background-attachment: fixed !important;
-          }
-          html:not(.dark) .bg-white, html:not(.dark) #dash-box {
-              background: var(--glass-light) !important;
-              backdrop-filter: blur(12px) !important;
-              -webkit-backdrop-filter: blur(12px) !important;
-              border: 1px solid rgba(255, 255, 255, 0.5) !important;
-              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
-          }
-          html:not(.dark) aside {
-              background: rgba(255, 255, 255, 0.5) !important;
-              backdrop-filter: blur(20px) !important;
-              border-right: 1px solid rgba(255,255,255,0.6) !important;
-          }
-          
-          /* Dark Theme */
-          html.dark {
-              background: var(--bg-dark) !important;
-              color: #f8fafc !important;
-          }
-          html.dark body {
-              background: radial-gradient(circle at top right, #1e293b 0%, #0f172a 100%) !important;
-              background-attachment: fixed !important;
-          }
-          html.dark .bg-white, html.dark .bg-darkcard, html.dark #dash-box {
-              background: var(--glass-dark) !important;
-              backdrop-filter: blur(16px) !important;
-              -webkit-backdrop-filter: blur(16px) !important;
-              border: 1px solid rgba(255, 255, 255, 0.1) !important;
-              box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3) !important;
-          }
-          html.dark aside {
-              background: rgba(15, 23, 42, 0.6) !important;
-              backdrop-filter: blur(24px) !important;
-              border-right: 1px solid rgba(255,255,255,0.05) !important;
-          }
-          
-          /* Buttons and Inputs */
-          input, select, textarea {
-              transition: all 0.2s ease;
-              border-radius: 0.75rem !important;
-          }
-          html:not(.dark) input, html:not(.dark) select, html:not(.dark) textarea {
-              background: rgba(255, 255, 255, 0.8) !important;
-              border: 1px solid rgba(203, 213, 225, 0.8) !important;
-          }
-          html.dark input, html.dark select, html.dark textarea {
-              background: rgba(15, 23, 42, 0.5) !important;
-              border: 1px solid rgba(51, 65, 85, 0.5) !important;
-          }
-          input:focus, select:focus, textarea:focus {
-              box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
-              border-color: var(--primary) !important;
-          }
-          
-          /* Navigation items */
-          .nav-item {
-              transition: all 0.2s ease !important;
-              border-radius: 0.75rem !important;
-              margin-bottom: 0.25rem !important;
-          }
-          html:not(.dark) .nav-item:hover {
-              background: rgba(255, 255, 255, 0.9) !important;
-              transform: translateX(4px);
-          }
-          html.dark .nav-item:hover {
-              background: rgba(30, 41, 59, 0.8) !important;
-              transform: translateX(4px);
-          }
-          .nav-item.active {
-              background: var(--primary) !important;
-              color: white !important;
-              border-left: none !important;
-              box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.4) !important;
-          }
-          
-          /* Misc Utilities */
-          .fade-in { animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-          @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-          
-          /* Scrollbar styling */
-          ::-webkit-scrollbar { width: 8px; height: 8px; }
-          ::-webkit-scrollbar-track { background: transparent; }
-          ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.3); border-radius: 4px; }
-          ::-webkit-scrollbar-thumb:hover { background: rgba(156, 163, 175, 0.5); }
-          
-          .mobile-bottom-nav {
-              background: var(--glass-light);
-              backdrop-filter: blur(20px);
-              border-top: 1px solid rgba(203, 213, 225, 0.5);
-          }
-          html.dark .mobile-bottom-nav {
-              background: rgba(15, 23, 42, 0.85);
-              border-top: 1px solid rgba(51, 65, 85, 0.5);
-          }
-          .mobile-nav-item.active {
-              color: var(--primary) !important;
-          }
-          .mobile-nav-item { transition: color 0.2s; }
-</style>
+              
               <div class="text-center mb-8">
                   <div class="relative inline-flex items-center justify-center mb-5">
                       <div class="lock-pulse relative w-20 h-20 rounded-3xl flex items-center justify-center" style="background:linear-gradient(145deg,rgba(99,102,241,0.25),rgba(99,102,241,0.08));border:1px solid rgba(99,102,241,0.45);box-shadow:0 0 40px rgba(99,102,241,0.25),inset 0 1px 0 rgba(255,255,255,0.08);">
@@ -313,7 +101,7 @@
                           <span class="w-2 h-2 rounded-full flex-shrink-0" style="background:#22c55e;box-shadow:0 0 8px #22c55e;"></span>
                           <span class="text-xs" style="color:#4ade80;">System online</span>
                           <span class="flex-1"></span>
-                          <span class="text-xs" style="color:#334155;">&#128274; Secure connection</span>
+                          <span class="text-xs" style="color:#334155;">🔒 Secure connection</span>
                       </div>
                       __HAS_DB_WARNING__
                       <div class="mb-5">
@@ -328,7 +116,7 @@
                               </button>
                           </div>
                       </div>
-                      <p id="err-msg" class="hidden text-sm mb-4 flex items-center gap-2 px-3 py-2.5 rounded-xl" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:#f87171;"><span>&#9888;&#65039;</span><span data-i18n="err_pass">Wrong password, please try again.</span></p>
+                      <p id="err-msg" class="hidden text-sm mb-4 flex items-center gap-2 px-3 py-2.5 rounded-xl" style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);color:#f87171;"><span>⚠️</span><span data-i18n="err_pass">Wrong password, please try again.</span></p>
                       <button onclick="doLogin()" class="login-btn btn-shimmer w-full py-3.5 rounded-2xl font-bold text-sm relative overflow-hidden transition-all" style="background:linear-gradient(135deg,#6366f1,#7c3aed);color:white;box-shadow:0 4px 24px rgba(99,102,241,0.4),inset 0 1px 0 rgba(255,255,255,0.1);" data-i18n="login_btn">
                           Sign In
                       </button>
@@ -355,7 +143,7 @@
                       <span class="font-semibold" data-i18n="tab_overview">Dashboard</span>
                   </button>
                   <button onclick="switchTab('info')" id="tab-info" class="nav-item flex items-center w-full px-4 py-3 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 group">
-                      <svg class="w-6 h-6 me-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                       <span class="font-semibold" data-i18n="tab_info">Endpoints</span>
                   </button>
                   <button onclick="switchTab('network')" id="tab-network" class="nav-item flex items-center w-full px-4 py-3 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 group">
@@ -419,12 +207,12 @@
                           <!-- Sub-options for format choice -->
                           <div class="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4 bg-amber-500/5 dark:bg-amber-500/[0.02] p-4 rounded-2xl border border-amber-500/10 mt-2 text-start">
                               <div class="space-y-1">
-                                  <span class="text-xs font-bold text-amber-800 dark:text-amber-400" data-i18n="lbl_update_format">Update Format & Obfuscation:</span>
+                                  <span class="text-xs font-bold text-amber-800 dark:text-amber-400" data-i18n="lbl_update_format">Update Format &amp; Obfuscation:</span>
                                   <p class="text-[10px] text-slate-500 dark:text-slate-400" data-i18n="desc_update_format">Deploy clean source code, or encrypt using dynamic XOR byte-shifting to avoid network interception.</p>
                               </div>
                               <div class="flex items-center gap-4 shrink-0 font-medium">
                                   <label class="inline-flex items-center cursor-pointer">
-                                      <input type="radio" name="update-format" value="normal" checked class="form-radio text-amber-500 w-4 h-4">
+                                      <input type="radio" name="update-format" value="normal" checked="" class="form-radio text-amber-500 w-4 h-4">
                                       <span class="ms-1.5 text-xs text-slate-700 dark:text-slate-300 font-bold" data-i18n="format_normal">Normal (_worker.js)</span>
                                   </label>
                                   <label class="inline-flex items-center cursor-pointer">
@@ -530,7 +318,7 @@
                               <div class="lg:col-span-2 bg-white dark:bg-darkcard rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-sm border border-slate-200 dark:border-darkborder">
                                   <div class="flex items-center justify-between mb-3 md:mb-4">
                                       <h3 class="text-xs md:text-sm uppercase font-bold text-slate-500 tracking-wider" data-i18n="ov_recent_activity">Recent Activity</h3>
-                                      <button onclick="switchTab('logs')" class="text-[11px] md:text-xs text-primary hover:text-primary/80 font-bold transition-colors" data-i18n="ov_view_all">View All &rarr;</button>
+                                      <button onclick="switchTab('logs')" class="text-[11px] md:text-xs text-primary hover:text-primary/80 font-bold transition-colors" data-i18n="ov_view_all">View All →</button>
                                   </div>
                                   <div id="ov-activity-list" class="space-y-1.5 md:space-y-2.5">
                                       <p class="text-sm text-slate-400 text-center py-6" data-i18n="ov_loading">Loading...</p>
@@ -545,7 +333,7 @@
                                            <span data-i18n="ov_add_user">Add User</span>
                                        </button>
                                        <button onclick="switchTab('users')" class="native-press flex items-center justify-center md:justify-start gap-2 md:gap-3 px-3 py-2.5 md:px-4 md:py-3 bg-violet-500/10 hover:bg-violet-500/20 text-violet-600 dark:text-violet-400 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-colors">
-                                           <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                                            <span data-i18n="ov_manage_users">Manage Users</span>
                                       </button>
                                        <button onclick="exportConfig()" class="native-press flex items-center justify-center md:justify-start gap-2 md:gap-3 px-3 py-2.5 md:px-4 md:py-3 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-lg md:rounded-xl font-bold text-xs md:text-sm transition-colors">
@@ -581,7 +369,7 @@
                                   <p id="net-ip" class="text-xl md:text-2xl font-black font-mono">...</p>
                               </div>
                               <div class="bg-white dark:bg-darkcard p-6 rounded-3xl shadow-sm border border-slate-200 dark:border-darkborder relative overflow-hidden group">
-                                  <svg class="w-8 h-8 text-emerald-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                                   <p class="text-xs uppercase font-bold text-slate-400 mb-1" data-i18n="stat_dc">Edge Node</p>
                                   <p id="net-colo" class="text-xl md:text-2xl font-black font-mono">...</p>
                               </div>
@@ -591,9 +379,9 @@
                                   <p id="net-loc" class="text-lg font-bold truncate">...</p>
                               </div>
                               <div class="bg-white dark:bg-darkcard p-6 rounded-3xl shadow-sm border border-slate-200 dark:border-darkborder relative overflow-hidden group sm:col-span-2 lg:col-span-1">
-                                  <svg class="w-8 h-8 text-blue-500 mb-4"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock10-icon lucide-clock-10"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l-4-2"/></svg>
+                                  <svg class="w-8 h-8 text-blue-500 mb-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l-4-2"></path></svg>
                                   <p class="text-xs uppercase font-bold text-slate-400 mb-1" data-i18n="stat_datetime">Date Time</p>
-                                  <p id="net-datetime" class="text-lg font-bold truncate text-center"  dir="rtl">...</p>
+                                  <p id="net-datetime" class="text-lg font-bold truncate text-center" dir="rtl">...</p>
                               </div>
                               <!-- Diagnostics Segment -->
                               <div class="bg-white dark:bg-darkcard p-6 rounded-3xl shadow-sm border border-slate-200 dark:border-darkborder relative overflow-hidden group sm:col-span-2 lg:col-span-3">
@@ -631,17 +419,29 @@
                       <!-- SETTINGS VIEW -->
                       <div id="view-settings" class="hidden">
                           <div class="bg-white/70 dark:bg-darkcard/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-white/20 dark:border-white/10 grid grid-cols-1 md:grid-cols-2 gap-5">
-                              <div class="space-y-1">
+                              <div class="space-y-1 mb-4">
+        <label class="block text-sm font-bold text-slate-600 dark:text-slate-300 ms-1 mb-1 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+            Display Theme
+        </label>
+        <select id="theme-selector" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary outline-none" onchange="window.changeThemeVariant(this.value)">
+                <option value="system">Default</option>
+                <option value="ocean">Ocean Blue</option>
+                <option value="forest">Forest Green</option>
+                <option value="sunset">Sunset Rose</option>
+                <option value="dracula">Dracula (Dark)</option>
+            </select>
+    </div><div class="space-y-1">
                                   <label class="block text-sm font-bold text-slate-600 dark:text-slate-300 ms-1" data-i18n="lbl_proto">Primary Display Mode</label>
                                   <select id="cfg-proto" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none appearance-none">
                                       <option value="alpha">Alpha Mode (V-Core)</option>
                                       <option value="beta">Beta Mode (T-Core)</option>
-                                      <option value="both">Both (V-Core & T-Core)</option>
+                                      <option value="both">Both (V-Core &amp; T-Core)</option>
                                   </select>
                               </div>
                                <div class="space-y-1">
                                   <label class="block text-sm font-bold text-slate-600 dark:text-slate-300 ms-1" data-i18n="lbl_port">Data Port (Checkbox Selection)</label>
-                                  <select id="cfg-port" multiple class="hidden">
+                                  <select id="cfg-port" multiple="" class="hidden">
                                       <option value="443">443</option>
                                       <option value="2053">2053</option>
                                       <option value="2083">2083</option>
@@ -792,7 +592,7 @@
                                        <label class="block text-xs font-bold text-slate-500 mb-2" data-i18n="lbl_auto_update_format">Update Format</label>
                                        <div class="flex gap-3">
                                            <label class="flex-1 flex items-center gap-2 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-darkborder cursor-pointer hover:border-emerald-400 transition-colors">
-                                               <input type="radio" name="auto-update-format" value="normal" checked class="accent-emerald-500">
+                                               <input type="radio" name="auto-update-format" value="normal" checked="" class="accent-emerald-500">
                                                <div>
                                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300" data-i18n="format_normal_label">Normal</span>
                                                <p class="text-[10px] text-slate-400" data-i18n="desc_format_normal">Standard _worker.js</p>
@@ -824,7 +624,7 @@
                                     <div id="api-key-new" class="hidden bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4 space-y-2">
                                         <p class="text-xs font-bold text-emerald-700 dark:text-emerald-400" data-i18n="api_key_created">API Key Created! Copy it now — it won't be shown again.</p>
                                         <div class="flex items-center gap-2">
-                                            <input type="text" id="api-key-value" readonly class="flex-1 px-3 py-2 bg-white dark:bg-slate-800 rounded-lg text-xs font-mono border border-emerald-300 dark:border-emerald-700 text-slate-700 dark:text-slate-300">
+                                            <input type="text" id="api-key-value" readonly="" class="flex-1 px-3 py-2 bg-white dark:bg-slate-800 rounded-lg text-xs font-mono border border-emerald-300 dark:border-emerald-700 text-slate-700 dark:text-slate-300">
                                             <button onclick="copyApiKey()" class="px-3 py-2 bg-emerald-600 text-white text-xs font-bold rounded-lg hover:bg-emerald-700">Copy</button>
                                         </div>
                                     </div>
@@ -832,7 +632,7 @@
 
                                 <!-- Import/Export Config Area -->
                                <div class="bg-white/70 dark:bg-darkcard/70 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-white/20 dark:border-white/10 md:col-span-2 space-y-4">
-                                  <h3 class="text-sm uppercase font-bold text-slate-400 tracking-wider" data-i18n="backup_restore_title">Backup & Restore</h3>
+                                  <h3 class="text-sm uppercase font-bold text-slate-400 tracking-wider" data-i18n="backup_restore_title">Backup &amp; Restore</h3>
                                   <div class="flex flex-col sm:flex-row gap-4">
                                       <button onclick="exportConfig()" class="flex-1 py-3 px-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl transition-colors text-sm" data-i18n="export_btn">
                                           📥 Export Configuration (JSON)
@@ -850,26 +650,28 @@
                       <div id="view-advanced" class="hidden space-y-4">
 
                           <!-- Section: Network & DNS -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">🌐</span>
-                                      <span class="text-sm font-bold text-slate-700 dark:text-slate-200" data-i18n="adv_network_dns">Network & DNS</span>
+                                      <span class="text-sm font-bold text-slate-700 dark:text-slate-200" data-i18n="adv_network_dns">Network &amp; DNS</span>
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="space-y-4 px-5 pb-5 pt-1">
                                       <div>
                                           <div class="flex items-center justify-between mb-2">
                                               <label class="text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="lbl_clean_ips">Clean IPs (Multi-Generator)</label>
                                               <span class="text-xs bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-md font-bold" id="ip-count-badge">1 Config Set</span>
                                           </div>
-                                          <textarea id="cfg-ips" rows="3" data-i18n="ph_clean_ips" placeholder="1.2.3.4#Germany&#10;5.6.7.8#US&#10;9.10.11.12#France" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
+                                          <textarea id="cfg-ips" rows="3" data-i18n="ph_clean_ips" placeholder="1.2.3.4#Germany
+5.6.7.8#US
+9.10.11.12#France" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
                                           <p class="text-xs text-slate-400 mt-2" data-i18n="desc_clean_ips">One IP per line. Use <code class="bg-slate-100 dark:bg-slate-800/80 px-1 py-0.5 rounded text-rose-500 font-mono">IP#Name</code> format to tag IPs (e.g. <code class="bg-slate-100 dark:bg-slate-800/80 px-1 py-0.5 rounded text-rose-500 font-mono">1.2.3.4#Germany</code>). Use <code class="bg-slate-100 dark:bg-slate-800/80 px-1 py-0.5 rounded text-rose-500 font-mono">{IP_NAME}</code> in name strategy.</p>
                                           <button id="btn-resolve-smart-ips" onclick="resolveSmartCleanIps()" class="mt-3 w-full sm:w-auto px-4 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
                                               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                                              Auto-Resolve CDN & Clean IPs
+                                              Auto-Resolve CDN &amp; Clean IPs
                                           </button>
                                       </div>
                                       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -893,23 +695,25 @@
                           </div>
 
                           <!-- Section: Proxy & Relay -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">🔗</span>
-                                      <span class="text-sm font-bold text-slate-700 dark:text-slate-200" data-i18n="adv_proxy_relay">Proxy & Relay</span>
+                                      <span class="text-sm font-bold text-slate-700 dark:text-slate-200" data-i18n="adv_proxy_relay">Proxy &amp; Relay</span>
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="space-y-4 px-5 pb-5 pt-1">
                                       <div class="space-y-1">
                                           <label class="block text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="lbl_relay">Proxy IPs (Comma/Newline separated)</label>
-                                          <textarea id="cfg-relay" rows="3" placeholder="104.20.0.1&#10;proxyip.cmliussss.net" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
+                                          <textarea id="cfg-relay" rows="3" placeholder="104.20.0.1
+proxyip.cmliussss.net" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
                                       </div>
                                       <div class="space-y-1">
                                           <label class="block text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="lbl_nat64">NAT64 Prefix</label>
-                                          <textarea id="cfg-nat64" rows="2" placeholder="64:ff9b::/96&#10;2001:db8:64::/96" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
+                                          <textarea id="cfg-nat64" rows="2" placeholder="64:ff9b::/96
+2001:db8:64::/96" class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-darkborder bg-slate-50 dark:bg-slate-800 focus:border-primary focus:ring-1 outline-none font-mono text-sm resize-none"></textarea>
                                           <p class="text-xs text-slate-400 mt-1" data-i18n="desc_nat64">Optional. Converts IPv4 Proxy IPs to NAT64 IPv6 addresses. Supports multiple prefixes (one per line).</p>
                                       </div>
                                       <label class="flex items-center justify-between cursor-pointer bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
@@ -927,7 +731,7 @@
                           </div>
 
                           <!-- Section: Subscription -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">📝</span>
@@ -935,7 +739,7 @@
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="space-y-4 px-5 pb-5 pt-1">
                                       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                           <div class="space-y-1">
@@ -968,7 +772,7 @@
                           </div>
 
                           <!-- Section: Protocol -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">⚡</span>
@@ -976,7 +780,7 @@
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="flex flex-col sm:flex-row gap-3">
                                       <label class="flex-1 flex items-center justify-between cursor-pointer bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl">
                                           <span class="text-sm font-bold text-slate-700 dark:text-slate-300" data-i18n="lbl_tfo">TCP Fast Open</span>
@@ -997,7 +801,7 @@
                           </div>
 
                           <!-- Section: Cluster -->
-                          <div class="bg-indigo-50 dark:bg-indigo-950/20 rounded-2xl border border-indigo-100 dark:border-indigo-900/50 overflow-hidden" data-accordion>
+                          <div class="bg-indigo-50 dark:bg-indigo-950/20 rounded-2xl border border-indigo-100 dark:border-indigo-900/50 overflow-hidden" data-accordion="">
                                <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-indigo-100/50 dark:hover:bg-indigo-900/30 transition-colors">
                                    <div class="flex items-center gap-3">
                                        <span class="text-lg">🔬</span>
@@ -1005,7 +809,7 @@
                                    </div>
                                    <svg class="w-4 h-4 text-indigo-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                </button>
-                               <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                               <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                    <div class="space-y-3 px-5 pb-5 pt-1">
                                        <p class="text-xs text-indigo-600/80 dark:text-indigo-300/70 leading-relaxed" data-i18n="other_nodes_desc">External nodes (URL + API Key) for cross-panel management.</p>
                                        <div class="flex items-center justify-between">
@@ -1045,7 +849,7 @@
                           </div>
 
                           <!-- Section: Telegram -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">🤖</span>
@@ -1053,7 +857,7 @@
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="space-y-3 px-5 pb-5 pt-1">
                                       <div class="space-y-1">
                                           <label class="block text-sm font-bold text-slate-600 dark:text-slate-300" data-i18n="lbl_tg_token">Bot Token</label>
@@ -1079,7 +883,7 @@
                           </div>
 
                           <!-- Section: Cloudflare -->
-                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion>
+                          <div class="bg-white dark:bg-darkcard rounded-2xl border border-slate-200 dark:border-darkborder overflow-hidden" data-accordion="">
                               <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between px-5 py-4 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
                                   <div class="flex items-center gap-3">
                                       <span class="text-lg">☁️</span>
@@ -1087,7 +891,7 @@
                                   </div>
                                   <svg class="w-4 h-4 text-slate-400 transform transition-transform duration-200 accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                               </button>
-                              <div data-accordion-content class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
+                              <div data-accordion-content="" class="transition-all duration-300" style="max-height:0;overflow:hidden;visibility:hidden">
                                   <div class="space-y-3 px-5 pb-5 pt-1">
                                       <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                           <div class="space-y-1">
@@ -1121,7 +925,7 @@
                                                   <ol class="list-decimal list-inside space-y-1 text-slate-500 dark:text-slate-400">
                                                       <li><strong>CF API Token:</strong> Click <a href="https://dash.cloudflare.com/profile/api-tokens?template=edit-workers" target="_blank" class="text-primary hover:underline font-bold">Api Token Template ↗</a>. Click <strong>Use Template</strong>, then <strong>Continue to summary</strong> &gt; <strong>Create Token</strong>. Copy and paste above!</li>
                                                       <li><strong>CF Account ID:</strong> Open any Cloudflare Workers page. Copy the 32-char string after <code>dash.cloudflare.com/</code> in the URL.</li>
-                                                      <li><strong>Worker Script Name:</strong> Go to <strong>Compute &gt; Workers & Pages</strong> in Cloudflare. Copy your worker's name.</li>
+                                                      <li><strong>Worker Script Name:</strong> Go to <strong>Compute &gt; Workers &amp; Pages</strong> in Cloudflare. Copy your worker's name.</li>
                                                   </ol>
                                               </div>
                                           </div>
@@ -1204,8 +1008,8 @@
                                    </button>
                                    <h3 class="text-lg font-bold text-slate-800 dark:text-white" data-i18n="modal_add_title">Add User</h3>
                                </div>
-                               <div class="overflow-y-auto flex-1 min-h-0 p-5 space-y-5">
-                                   <div class="space-y-4">
+                               <div class="overflow-y-auto flex-1 min-h-0 p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_basic_info">Basic Info</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1218,7 +1022,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_limits">Limits</h4>
                                        <div class="space-y-3">
                                            <div class="grid grid-cols-2 gap-3">
@@ -1242,7 +1046,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_network">Network</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1275,7 +1079,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_advanced">Advanced</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1313,8 +1117,8 @@
                                    <h3 class="text-lg font-bold text-slate-800 dark:text-white" data-i18n="edit_sub">Edit Subscriber</h3>
                                    <input type="hidden" id="edit-user-id">
                                </div>
-                               <div class="overflow-y-auto flex-1 min-h-0 p-5 space-y-5">
-                                   <div class="space-y-4">
+                               <div class="overflow-y-auto flex-1 min-h-0 p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_basic_info">Basic Info</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1327,7 +1131,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_limits">Limits</h4>
                                        <div class="space-y-3">
                                            <div class="grid grid-cols-2 gap-3">
@@ -1351,7 +1155,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_network">Network</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1384,7 +1188,7 @@
                                            </div>
                                        </div>
                                    </div>
-                                   <div class="space-y-4">
+                                   <div class="space-y-4 bg-slate-50/50 dark:bg-slate-800/30 p-5 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider" data-i18n="section_advanced">Advanced</h4>
                                        <div class="space-y-3">
                                            <div>
@@ -1443,7 +1247,7 @@
                   <span class="text-[10px] font-bold" data-i18n="tab_overview">Dashboard</span>
               </button>
               <button onclick="switchTab('info')" id="mob-tab-info" class="mobile-tab-item mobile-nav-item flex flex-col items-center justify-center w-full h-full text-slate-400">
-                  <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
                   <span class="text-[10px] font-bold" data-i18n="tab_info">Endpoints</span>
               </button>
               <button onclick="switchTab('network')" id="mob-tab-network" class="mobile-tab-item mobile-nav-item flex flex-col items-center justify-center w-full h-full text-slate-400">
@@ -2807,6 +2611,13 @@
                     <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m0 11v1m5-7h1m-13 0h1m2-5a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2h-8zM9 9h1m0 0v1m2-1h1m0 0v1"></path></svg>
                     <span data-i18n="show_qr">Show QR Code</span>
                 </button>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">
+    <a href="v2rayng://install-sub?url=${encodeURIComponent(p.sync)}" class="text-center p-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-bold hover:bg-indigo-100 transition-colors">v2rayNG</a>
+    <a href="shadowrocket://add/sub://${btoa(p.sync)}" class="text-center p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-[10px] font-bold hover:bg-blue-100 transition-colors">Shadowrocket</a>
+    <a href="streisand://import/${p.sync}" class="text-center p-2 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold hover:bg-emerald-100 transition-colors">Streisand</a>
+    <a href="v2ray://install-sub?url=${encodeURIComponent(p.sync)}" class="text-center p-2 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 text-[10px] font-bold hover:bg-purple-100 transition-colors">v2rayN</a>
+</div>
+
             </div>
         </div>
     </div>
@@ -4161,5 +3972,27 @@ function buildPortCheckboxes(wrapId, selectedPorts) {
               }
           });
       </script>
-  </body>
-  </html>
+  
+  
+<script>
+  const origToggleTheme = window.toggleTheme;
+  window.toggleTheme = function() {
+      if(origToggleTheme) origToggleTheme();
+      else {
+         document.documentElement.classList.toggle('dark');
+         localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      }
+  };
+
+  window.changeThemeVariant = function(variant) {
+      localStorage.setItem('theme_variant', variant);
+      document.documentElement.setAttribute('data-theme', variant);
+  };
+  
+  document.addEventListener('DOMContentLoaded', () => {
+      const savedVariant = localStorage.getItem('theme_variant') || 'system';
+      document.documentElement.setAttribute('data-theme', savedVariant);
+      const sel = document.getElementById('theme-selector');
+      if(sel) sel.value = savedVariant;
+  });
+</script></body></html>
