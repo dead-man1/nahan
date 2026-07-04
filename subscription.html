@@ -570,7 +570,8 @@
                 let ipEl = document.getElementById('client-ip');
                 if(ipEl) ipEl.textContent = 'Unknown';
             });
-\n        (function init() {
+
+        (function init() {
             try {
                 const savedTheme = localStorage.getItem('sub-theme');
                 if (savedTheme) isDark = savedTheme === 'dark';
